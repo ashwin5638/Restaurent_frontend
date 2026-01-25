@@ -1,0 +1,169 @@
+.navbar-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-container{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    background-color: rgb(219, 231, 242);
+}
+
+
+.nav-list-cont{
+    display: flex;
+    margin-left: 200px;
+}
+
+
+.head{
+    margin-left: 100px;
+    color: rgb(40, 40, 104);
+    
+}
+
+.nav-list{
+    list-style-type: none;
+    padding: 30px;
+    font-weight: bold;
+}
+
+.signup-container{
+    display: flex;
+    flex-direction: row;
+    margin-left: 300px;
+    gap: 30px;
+}
+
+.books-container{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.image{
+    height: 200px;
+    width: 220px;
+    margin-left: 30px;
+    border-radius: 6px;
+}
+
+.dish-name{
+    font-size: 20px;
+    margin-left: 30px;
+}
+
+.list-item{
+    display: flex;
+    list-style-type: none;
+    flex-direction: column;
+}
+
+.footer-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 250px;
+    background-color: #1b1844;
+    color: white;
+    padding: 20px;
+}
+
+
+.follow-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    margin-top: 50px;
+    gap: 0; 
+}
+
+.footer-container * {
+    margin: 0; 
+    padding: 0; 
+}
+
+.follow-container p {
+    margin: 0;
+    padding-left: 10px; 
+}
+
+.contact-cont{
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    margin-top: 50px;
+    gap: 0; 
+}
+
+
+.contact-cont * {
+    margin: 0; 
+    padding: 0; 
+}
+
+.tile-container {
+    height: 400px;
+    background-color: rgb(69, 9, 9);
+    background-size: cover;
+}
+
+
+.tile-container *{
+    margin: 0px;
+    padding: 0px;
+}
+
+.titl-head{
+    margin-top: 30px;
+    margin-left: 300px;    
+    color: white;
+    font-size: 70px;
+}
+.line{
+    width: 400px;
+    margin-left: 290px;
+}
+
+.para{
+    color: rgb(150, 148, 148);
+    margin-top: 20px;
+    padding: 30px;
+    font-size: 18px;
+    margin-left: 260px;
+}
+
+.link{
+    text-decoration: none;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.social-links a:hover {
+    color: #ccc;
+}
+
+.copyright {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+}
+
+
+.link{
+    text-decoration: none;
+    color: black;
+}
