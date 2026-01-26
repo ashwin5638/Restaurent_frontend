@@ -72,7 +72,7 @@ const filteredMenuData = menuData.filter(eachRecipe =>
                {filteredMenuData.map(each => (
                       <ul className='list-item1'>
                         <li key={each.id}>
-                            <img src={each.image} className='image' />
+                            <img src={each.image} className='image' alt="tile" />
                              <p className='dish-name'>{each.name}</p>
                         </li>
                       </ul>
