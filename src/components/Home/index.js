@@ -32,7 +32,7 @@ const Home = () => {
           <div className='navbar-container' >
                   <nav className="nav-container">
                    <div>
-                      <Link to='/' className="link">
+                      <Link to='/home' className="link">
                         <h1 className='head' >restaurant</h1>
                       </Link>
                           
