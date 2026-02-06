@@ -65,7 +65,7 @@ const handleRegister = async (e) => {
     return (
         <div className='container1'>
       <form onSubmit={handleRegister} className='regist-container'>
-        {/* Added a Header */}
+      
         <h2 className='head-login'>Create Account</h2>
 
         <input 

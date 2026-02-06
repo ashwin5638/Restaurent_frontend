@@ -52,7 +52,9 @@ const Home = () => {
                     <Link to='/login' className="link" >
                        <li className='nav-list'>Login</li>
                     </Link>
-                       
+                    <Link to='/logout' className="link">
+                     <li className='nav-list'>Logout</li>
+                    </Link>
                  
                  </div>
                   </nav>
@@ -69,7 +71,7 @@ const Home = () => {
                        {menu.slice(0,5).map(each => (  
                             <ul key={each.id} className='list-item'>
                            <li>    
-                             <img src={each.image} alt={each.title} className='image' />
+                             <img src={each.image} className='image' alt='tike' />
                              <p className='dish-name'>{each.name}</p>
                            </li>
                          </ul>
@@ -87,9 +89,9 @@ const Home = () => {
                            <h1>Contact us</h1>
                            <p>Follow us on social media</p>
                            <div className='social-links'>
-                                 <a href="..."><FaInstagram size={30} color="#E1306C" /></a>
-                                <a href="..."><FaWhatsapp size={30} color="#25D366" /></a>
-                                <a href="..."><FaTwitter size={30} color="#1DA1F2" /></a>
+                                 <a href="/home"><FaInstagram size={30} color="#E1306C" /></a>
+                                <a href="/home"><FaWhatsapp size={30} color="#25D366" /></a>
+                                <a href="/home"><FaTwitter size={30} color="#1DA1F2" /></a>
                                 
                            </div>
                         </div>

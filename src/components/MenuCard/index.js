@@ -37,7 +37,7 @@ const filteredMenuData = menuData.filter(eachRecipe =>
         <div className='navbar-container' >
                   <nav className="nav-container">
                    <div>
-                      <Link to='/' className="link">
+                      <Link to='/home' className="link">
                           <h1 className='head'>restaurant</h1>
                         </Link>  
                    </div>
@@ -93,9 +93,9 @@ const filteredMenuData = menuData.filter(eachRecipe =>
                            <p>Follow us on social media</p>
                            <div className='social-links'>
                               <div className='social-links'>
-                                 <a href="..."><FaInstagram size={30} color="#E1306C" /></a>
-                                <a href="..."><FaWhatsapp size={30} color="#25D366" /></a>
-                                <a href="..."><FaTwitter size={30} color="#1DA1F2" /></a>                                  
+                                 <a href="/menucard"><FaInstagram size={30} color="#E1306C" /></a>
+                                <a href="/menucard"><FaWhatsapp size={30} color="#25D366" /></a>
+                                <a href="/menucard"><FaTwitter size={30} color="#1DA1F2" /></a>                                  
                               </div>
                            </div>
                         </div>
