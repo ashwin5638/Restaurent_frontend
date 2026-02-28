@@ -9,7 +9,7 @@ import { useState, useEffect } from "react"
 const Home = () => {
 
   const [menu, setMenu] = useState([])
-  const [isVisible, setIsVisible] = useState(false)
+  const [, setIsVisible] = useState(false)
 
   useEffect(() => {
     setIsVisible(true)
