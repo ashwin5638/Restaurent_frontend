@@ -33,7 +33,7 @@ const BookTable = () => {
         }
 
         try {
-            const res = await fetch('http://localhost:5000/book', {
+            const res = await fetch('https://restaurent-backend-1-3fc8.onrender.com/book', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
