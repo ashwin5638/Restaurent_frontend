@@ -9,7 +9,7 @@ const BookTable = () => {
         guests: 2,
         requests: ''
     })
-    const [message, setMessage] = useState('')
+    const [, setMessage] = useState('')
     const [error, setError] = useState('')
     const [showPopup, setShowPopup] = useState(false)
 
