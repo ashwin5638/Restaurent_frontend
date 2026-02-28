@@ -4,36 +4,31 @@ import MenuCard from './components/MenuCard'
 import Register from './components/Register'
 import Login from './components/Login'
 import Logout from './components/Logout'
+import BookTable from './components/BookTable'
 import ProtectedRoute from './ProtectedRoute/protectedRoute.js'
 import './App.css'
 
 const App = () => {
-
   return (
     <Router>
       <Routes>
-        {/* Default entry */}
-        <Route path="/" element={<Navigate to="/login" />} />
 
         {/* Public routes */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/logout" element={<Logout />} />
-        {/* Protected routes */}
-        <Route
-          path="/home"
-          element={
-            <ProtectedRoute>
-              <Home />
-            </ProtectedRoute>
-          }
-        />
+        <Route path="/home" element={<Home />} />
+        <Route path="/menucard" element={<MenuCard />} />
 
+        {/* Redirect root */}
+        <Route path="/" element={<Navigate to="/home" replace />} />
+
+      
         <Route
-          path="/menucard"
+          path="/book"
           element={
             <ProtectedRoute>
-              <MenuCard />
+              <BookTable />
             </ProtectedRoute>
           }
         />
@@ -42,5 +37,6 @@ const App = () => {
     </Router>
   )
 }
+
 
 export default App

@@ -1,72 +1,69 @@
-    import {useState} from 'react'
-    import { useNavigate, Link } from 'react-router-dom'
-    import "./index.css"
+import { useState } from 'react'
+import { useNavigate, Link } from 'react-router-dom'
+import "./index.css"
 
-    const Login = () => {
-        const [email, setEmail] = useState('')
-        const [password, setPassword] = useState('')
-        const [error, setError] = useState('')
+const Login = () => {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
+
+  const navigate = useNavigate()
+
+  const onChangeEmail = (event) => {
+    setEmail(event.target.value)
+  }
+
+  const onChangePassword = (event) => {
+    setPassword(event.target.value)
+  }
 
 
-        const navigate = useNavigate()
 
-    const onChangeEmail = (event) => {
-            setEmail(event.target.value)
+  const handleLogin = async (e) => {
+    e.preventDefault()
+
+    try {
+      const res = await fetch(
+        'https://restaurent-backend-1-3fc8.onrender.com/login',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password })
         }
+      )
 
-    const onChangePassword =(event) => {
-            setPassword(event.target.value)
-        }
-    
+      const data = await res.json()
 
-    const handleLogin = async (e) => {
-        e.preventDefault()
+      if (!res.ok) {
+        setError(data.message)
+        return
+      }
 
-    try{
-        
-        const res = await fetch('http://localhost:5000/login', {
-            method : 'POST',
-            headers : {'Content-Type': 'application/json'},
-            body : JSON.stringify({
-                email,
-                password
-            })
+      localStorage.setItem('token', data.token)
 
-        })
 
-        const data = await res.json()
-        
+      navigate('/book', { replace: true })
 
-        if (!res.ok) {
-    setError(data.message)
-    return
+    } catch (e) {
+      setError('Something went wrong')
     }
+  }
 
-        localStorage.setItem('token', data.token)
-        navigate('/home')
+  return (
+    <div className='container1'>
 
+      <form className='regist-container' onSubmit={handleLogin}>
+        <h1 className='head-login'>Login</h1>
+        <input placeholder='Email' className='input1' onChange={onChangeEmail} />
+        <input placeholder='password' className='input1' onChange={onChangePassword} />
+        <button onClick={handleLogin} className='button' >Login</button>
+        {error && <p className='para1'>{error}</p>}
+        <p className='para-signup'>don't have account yet <span>
+          <Link to='/register' className='signUp-link'> signUp</Link>
+        </span> </p>
+      </form>
+    </div>
+  )
+}
 
-    } catch(e){
-        setError('Something went wrong')
-    }
-        
-    }
-
-        return (
-            <div className='container1'>
-                
-                <form className='regist-container' onSubmit={handleLogin}>
-                    <h1 className='head-login'>Login</h1>
-                    <input placeholder='Email'  className='input1'  onChange={onChangeEmail}/>
-                    <input placeholder='password'  className='input1' onChange={onChangePassword}/>
-                    <button onClick={handleLogin} className='button' >Login</button>
-                    {error && <p className='para1'>{error}</p>}
-                    <p className='para-signup'>don't have account yet <span>
-                          <Link to='/register' className='signUp-link'> signUp</Link>
-                        </span> </p>
-                </form>
-            </div>
-        )
-    }
-
-    export default Login
+export default Login
