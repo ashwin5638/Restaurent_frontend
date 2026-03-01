@@ -9,20 +9,24 @@ import { useState, useEffect } from "react"
 const Home = () => {
 
   const [menu, setMenu] = useState([])
-  const [, setIsVisible] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
+  const [fetchError, setFetchError] = useState(false)
 
   useEffect(() => {
-    setIsVisible(true)
-  }, [])
-
-  useEffect(() => {
+    setIsLoading(true)
+    setFetchError(false)
     fetch('https://restaurent-backend-1-3fc8.onrender.com/menu')
       .then(res => res.json())
       .then(data => {
         console.log(data)
         setMenu(data.recipes)
+        setIsLoading(false)
       })
-      .catch(error => console.log("Error fetching menu data:", error))
+      .catch(error => {
+        console.log("Error fetching menu data:", error)
+        setIsLoading(false)
+        setFetchError(true)
+      })
   }, [])
 
   return (
@@ -35,11 +39,11 @@ const Home = () => {
             className="title-head"
           >
             <span className="span">Exquisite</span>,{' '}
-          taste <br/> unforgettable 
+            taste <br /> unforgettable
             atmosphere
           </h1>
 
-        
+
           <p className="para-title"
           >
             Welcome to Savory, where culinary artistry meets exceptional dining experiences.
@@ -50,14 +54,25 @@ const Home = () => {
       </div>
 
       <div className='food-container'>
-        {menu.slice(0, 5).map(each => (
-          <ul key={each.id} className='list-item'>
-            <li>
-              <img src={each.image} className='image' alt='tike' />
-              <p className='dish-name'>{each.name}</p>
-            </li>
-          </ul>
-        ))}
+        {isLoading ? (
+          <div className="loading-container">
+            <div className="spinner"></div>
+            <p className="loading-text">Loading menu...</p>
+          </div>
+        ) : fetchError ? (
+          <div className="loading-container">
+            <p className="loading-text">Could not load menu. Please refresh the page.</p>
+          </div>
+        ) : (
+          menu.slice(0, 5).map(each => (
+            <ul key={each.id} className='list-item'>
+              <li>
+                <img src={each.image} className='image' alt='tike' />
+                <p className='dish-name'>{each.name}</p>
+              </li>
+            </ul>
+          ))
+        )}
       </div>
 
       <div className='footer-container'>

@@ -17,7 +17,7 @@ const MenuCard = () => {
   }
 
   useEffect(() => {
-    fetch('http://localhost:5000/menu')
+    fetch('https://restaurent-backend-1-3fc8.onrender.com/menu')
       .then(res => res.json())
       .then(data => {
         console.log(data)
